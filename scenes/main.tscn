@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d18nkw05phsou"]
+
+[ext_resource type="Script" uid="uid://cc76u6qy0mbuo" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bkspayxj4bo61" path="res://scenes/Levels/level4.tscn" id="2_0wfyh"]
+[ext_resource type="FontFile" uid="uid://rgi6ofjpnn51" path="res://assets/fonts/Square-Black.ttf" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://cvlg1cip1r26l" path="res://assets/sound/music.ogg" id="5_music"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(0.22489598, 0.6514717, 0.82577676, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[node name="Main" type="Node2D" unique_id=363627174]
+script = ExtResource("1_sugp2")
+
+[node name="LevelRoot" parent="." unique_id=2142529640 instance=ExtResource("2_0wfyh")]
+position = Vector2(-25, 14.000002)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1818900798]
+
+[node name="ScorePanel" type="Panel" parent="HUD" unique_id=1843185387]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sugp2")
+
+[node name="ScoreLabel" type="Label" parent="HUD/ScorePanel" unique_id=1725514229]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -15.0
+offset_right = 57.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 32
+text = "SCORE : 0"
+
+[node name="Fade" type="ColorRect" parent="HUD" unique_id=748785533]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1064700618]
+stream = ExtResource("5_music")
+autoplay = true

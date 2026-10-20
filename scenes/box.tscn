@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c02eiejq2xp8r"]
+
+[ext_resource type="Texture2D" uid="uid://dkbgxftmdlfq3" path="res://assets/images/Collectbles/big-crate.png" id="1_3inec"]
+[ext_resource type="Script" uid="uid://dtifie2nbmm1l" path="res://scripts/box.gd" id="2_box"]
+[ext_resource type="AudioStream" path="res://assets/sound/collect_apple.wav" id="3_sound"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks2v0"]
+atlas = ExtResource("1_3inec")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_on5l8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks2v0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ln5"]
+size = Vector2(32, 32)
+
+[node name="box" type="Area2D" unique_id=729684170]
+script = ExtResource("2_box")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049582438]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_on5l8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1391251994]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_c2ln5")
+
+[node name="CollectedSound" type="AudioStreamPlayer2D" parent="." unique_id=459072264]
+stream = ExtResource("3_sound")
+pitch_scale = 0.75

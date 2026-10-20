@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bxt65uubjmxag"]
+
+[ext_resource type="Script" uid="uid://comnhaxe2u22m" path="res://scripts/killzone.gd" id="1_jw2kg"]
+
+[node name="killzone" type="Area2D" unique_id=1076006801]
+script = ExtResource("1_jw2kg")
+
+[node name="Timer" type="Timer" parent="." unique_id=1160038423]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

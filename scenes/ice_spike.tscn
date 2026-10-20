@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://5vbimxsdgycs"]
+
+[ext_resource type="Script" uid="uid://dxyic4ee63h0q" path="res://scripts/ice_spike.gd" id="1_ljugv"]
+[ext_resource type="Texture2D" uid="uid://5tnyrr46wg4g" path="res://assets/images/Background/ChatGPT Image Feb 4, 2026, 10_46_39 AM.png" id="1_sq37h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljugv"]
+atlas = ExtResource("1_sq37h")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfsr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljugv")
+}],
+"loop": true,
+"name": &"ice spike",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwmiv"]
+size = Vector2(48.75, 64.75)
+
+[node name="Ice Spike" type="Area2D" unique_id=578868805]
+script = ExtResource("1_ljugv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192168785]
+position = Vector2(-2.3841858e-07, 0)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_bfsr4")
+animation = &"ice spike"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=712979384]
+position = Vector2(-0.375, -4.125)
+shape = SubResource("RectangleShape2D_nwmiv")
